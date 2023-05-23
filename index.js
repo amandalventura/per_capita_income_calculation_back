@@ -3,8 +3,8 @@ const app = express();
 const axios = require("axios");
 const cors = require("cors");
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.post('/', async (req, res) => {
    const {name, zip, monthly_income, number_of_dependents} = req.body;
    const response = await axios.get(`https://viacep.com.br/ws/${zip}/json/`);
@@ -21,5 +21,5 @@ app.post('/', async (req, res) => {
 });
 
 app.listen(3333, () => {
-    console.log("teste")
+    console.log("server is running")
 });
